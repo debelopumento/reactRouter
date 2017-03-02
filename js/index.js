@@ -3,12 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 import Mailbox from './components/mailbox'
-//import Spambox from './components/spambox'
-//import MailList from './components/mailList'
-import {applyMiddleware, combineReducers, createStore} from 'redux';
-import store from './store';
 import App from './components/app';
-//import Mail from './components/mailbox'
 import Mailsdb from './components/mailsdb'
 
 
