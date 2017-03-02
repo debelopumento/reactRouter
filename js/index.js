@@ -8,7 +8,16 @@ import MailList from './components/mailList'
 import {applyMiddleware, combineReducers, createStore} from 'redux';
 import store from './store';
 import App from './components/app';
+import Mail from './components/mail'
+import Mailsdb from './components/mailsdb'
 
+function MailContainer(props) {
+	const mail = Mailsdb[props.params.id]
+	console.log(10)
+	return(
+		<Mail id={mail.id} title={mail.title} content={mail.content} />
+	)
+}
 
 ReactDOM.render((
 	<Router history={browserHistory}>
@@ -17,7 +26,7 @@ ReactDOM.render((
 				<Route path='mailList' component={MailList}/>
 			</Route>
 			<Route path='spambox' component={Spambox}>
-				<Route path='spambox/mailList' component={MailList}/>
+				<Route path=':id' component={MailContainer}/>
 			</Route>
 		</Route>
 	</Router>
