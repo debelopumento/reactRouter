@@ -4,9 +4,7 @@ import Mailsdb from './mailsdb'
 //import Mail from './mail'
 import {Link} from 'react-router'
 
-
-
-class Spambox extends React.Component {
+class Mailbox extends React.Component {
 	
 	render() {
 		function Mail(props) {
@@ -39,7 +37,7 @@ class Spambox extends React.Component {
 		}
 
 		const spamMails = Mailsdb.spam
-		console.log(1, spamMails)
+		console.log(11, spamMails)
 
 		return (
 			<div>
@@ -52,4 +50,4 @@ class Spambox extends React.Component {
 	}	
 }
 
-export default Spambox
+export default Mailbox
