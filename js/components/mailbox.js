@@ -22,7 +22,7 @@ class Mailbox extends React.Component {
 				console.log(2, mailId)
 				return (
 					<li key={index}>
-						<NavLink to={`/spambox/${mailId}`}>{mail.title}</NavLink>
+						<NavLink to={`/spam/${mailId}`}>{mail.title}</NavLink>
 					</li>
 				)
 			})
@@ -36,14 +36,14 @@ class Mailbox extends React.Component {
 			)
 		}
 
-		const spamMails = Mailsdb.spam
-		console.log(11, spamMails)
-
+		const mailboxName = this.props.mailboxName
+		const mails = Mailsdb[mailboxName]
+		console.log(29, mailboxName, 30, mails, 31, Mailsdb)
 		return (
 			<div>
-				<h3>Spambox</h3>
+				<h3>{mailboxName}</h3>
 				
-				<MailList mails={spamMails} />
+				<MailList mails={Mailsdb[mailboxName]} />
 				{this.props.children}
 			</div>
 		)
