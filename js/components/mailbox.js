@@ -17,12 +17,13 @@ class Mailbox extends React.Component {
 		}
 		
 		function MailList(props) {
+			
 			const mails = Object.keys(props.mails).map((mailId, index) => {
 				const mail = props.mails[mailId]
 				console.log(2, mailId)
 				return (
 					<li key={index}>
-						<NavLink to={`/spam/${mailId}`}>{mail.title}</NavLink>
+						<NavLink to={`/${mailboxName}/${mailId}`}>{mail.title}</NavLink>
 					</li>
 				)
 			})
@@ -37,13 +38,10 @@ class Mailbox extends React.Component {
 		}
 
 		const mailboxName = this.props.mailboxName
-		const mails = Mailsdb[mailboxName]
-		console.log(29, mailboxName, 30, mails, 31, Mailsdb)
 		return (
 			<div>
 				<h3>{mailboxName}</h3>
-				
-				<MailList mails={Mailsdb[mailboxName]} />
+				<MailList mails={Mailsdb[mailboxName]} mailboxName={mailboxName} />
 				{this.props.children}
 			</div>
 		)
